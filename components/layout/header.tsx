@@ -12,7 +12,7 @@ export function Header() {
       <nav aria-label="主要導覽" className="hidden items-center gap-1 lg:flex">
         {navItems.map(({ href, label }) => <Link key={href} href={href} className="rounded-xl px-4 py-3 text-sm text-slate-400 transition hover:bg-white/5 hover:text-white">{label}</Link>)}
       </nav>
-      <div className="flex items-center gap-2"><span className="hidden rounded-full border border-amber-400/25 bg-amber-400/8 px-3 py-1.5 text-xs text-amber-300 sm:block">獨立研究工具 · 18+</span><button aria-label="開啟選單" className="grid size-11 place-items-center rounded-xl border border-white/10 lg:hidden"><Menu className="size-5" /></button></div>
+      <div className="flex items-center gap-2"><Link href="/zh-HK/login" className="hidden min-h-11 items-center rounded-xl border border-white/10 px-3 text-sm font-semibold text-slate-300 hover:bg-white/5 sm:inline-flex">管理員登入</Link><span className="hidden rounded-full border border-amber-400/25 bg-amber-400/8 px-3 py-1.5 text-xs text-amber-300 md:block">獨立研究工具 · 18+</span><button aria-label="開啟選單" className="grid size-11 place-items-center rounded-xl border border-white/10 lg:hidden"><Menu className="size-5" /></button></div>
     </div>
   </header>;
 }

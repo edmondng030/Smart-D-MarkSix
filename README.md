@@ -72,3 +72,7 @@ Phase 0 只提供產品骨架及 demo 首頁；結果、分析、產生器、對
 CSV 範本位於 `public/sample-data/draws-template.csv`。流程為：上載 → 逐行驗證 → 管理員預覽 → 批准／拒絕 → verified dataset + audit log。有任何驗證錯誤的 import 不能批准，拒絕時必須輸入原因。
 
 本地尚未連接實際 Supabase project，因此沒有執行遠端 migration。
+
+## 管理員登入
+
+前往 /zh-HK/login 使用 Supabase Auth email/password 登入。Middleware 會刷新 cookie session；未登入者會被導向登入頁，已登入但沒有 dmin role 的用戶不能開啟 /zh-HK/admin/imports。登出會清除 Supabase session。
