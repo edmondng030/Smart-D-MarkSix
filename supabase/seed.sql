@@ -1,0 +1,2 @@
+-- Assign your first administrator after creating the Auth user:
+-- insert into public.user_roles(user_id, role) values ('AUTH-USER-UUID', 'admin');

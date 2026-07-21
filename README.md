@@ -57,3 +57,18 @@ Phase 0 只提供產品骨架及 demo 首頁；結果、分析、產生器、對
 ## License
 
 尚未選定；正式發布前補充。
+
+## Phase 1 資料層
+
+已加入 Supabase draws、draw prizes、data imports、audit logs schema 與 RLS，以及 CSV parser、Zod 逐行驗證、SHA-256 去重、錯誤報告和管理員批准／拒絕 UI。發布 verified draws 與 audit log 使用同一 SQL transaction。
+
+### Supabase migration
+
+1. 建立 Supabase project，將 `.env.example` 複製為 `.env.local` 並填入 project URL／publishable key。
+2. 執行 `supabase db push`，或在 SQL Editor 執行 `supabase/migrations/202607210001_phase1_data_layer.sql`。
+3. 在 Supabase Auth 建立管理員後，依 `supabase/seed.sql` 將 user UUID 加入 `user_roles`，role 設為 `admin`。
+4. 以管理員 session 開啟 `/zh-HK/admin/imports`。
+
+CSV 範本位於 `public/sample-data/draws-template.csv`。流程為：上載 → 逐行驗證 → 管理員預覽 → 批准／拒絕 → verified dataset + audit log。有任何驗證錯誤的 import 不能批准，拒絕時必須輸入原因。
+
+本地尚未連接實際 Supabase project，因此沒有執行遠端 migration。

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0 - 2026-07-21
+
+- 新增 Supabase Phase 1 schema、constraints、indexes 及 RLS policies。
+- 新增 CSV parser、Zod draw validation、hash 去重與逐行錯誤報告。
+- 新增管理員 CSV 預覽、批准／拒絕 API 與 UI。
+- 新增原子化發布與 audit log RPC。
+- 新增 demo CSV、資料來源政策及 Phase 1 unit/integration tests。
 ## 0.1.0 - 2026-07-21
 
 - 建立 Phase 0 Next.js、TypeScript、Tailwind 基礎。
