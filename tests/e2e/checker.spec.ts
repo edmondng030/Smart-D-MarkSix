@@ -1,0 +1,2 @@
+import{expect,test}from"@playwright/test";
+test("checks a verified historical first-prize combination",async({page})=>{await page.goto("/zh-HK/checker");await expect(page.getByRole("heading",{name:"開獎結果核對"})).toBeVisible();await page.getByLabel("開獎期數").fill("202677N");for(const number of[18,21,26,30,32,44])await page.getByRole("button",{name:`號碼 ${number}`,exact:true}).click();await page.getByRole("button",{name:"核對結果"}).click();await expect(page.getByRole("heading",{name:"一獎"})).toBeVisible({timeout:15000});await expect(page.getByText("命中 6 個主號碼")).toBeVisible();});

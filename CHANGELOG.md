@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.7.0 - 2026-07-22
+
+- Added verified-draw result checker API and responsive 1–49 number pad.
+- Added main/extra match highlighting and first-through-seventh prize classification.
+- Added recent draw selection, historical draw lookup, rule tests, and checker E2E.
+
 ## 0.6.0 - 2026-07-22
 
 - Added reproducible uniform, conditional, and historical-weighted generators.

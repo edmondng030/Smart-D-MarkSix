@@ -1,0 +1,4 @@
+import type{PrizeDivision}from"@/features/checker/types";
+export function classifyPrize(mainHits:number,extraHit:boolean):PrizeDivision{if(mainHits===6)return 1;if(mainHits===5&&extraHit)return 2;if(mainHits===5)return 3;if(mainHits===4&&extraHit)return 4;if(mainHits===4)return 5;if(mainHits===3&&extraHit)return 6;if(mainHits===3)return 7;return null;}
+export function prizeLabel(division:PrizeDivision){return division===null?"未達獎項":"一二三四五六七"[division-1]+"獎";}
+export function checkCombination(selected:number[],main:number[],extra:number){const mainSet=new Set(main),mainMatches=selected.filter((number)=>mainSet.has(number)).sort((a,b)=>a-b),extraMatch=selected.includes(extra)?extra:null,division=classifyPrize(mainMatches.length,extraMatch!==null);return{mainMatches,extraMatch,mainHitCount:mainMatches.length,hasExtraHit:extraMatch!==null,prizeDivision:division,prizeLabel:prizeLabel(division)};}

@@ -1,0 +1,5 @@
+import{apiError,apiSuccess}from"@/lib/api/response";
+import{checkCombination}from"@/lib/checker/prize";
+import{checkerRequestSchema}from"@/lib/checker/schema";
+import{getVerifiedDraw}from"@/lib/draws/repository";
+export async function POST(request:Request){const parsed=checkerRequestSchema.safeParse(await request.json().catch(()=>null));if(!parsed.success)return apiError("VALIDATION_ERROR","Please select six unique numbers and a valid draw.",400,parsed.error.flatten());try{const draw=await getVerifiedDraw(parsed.data.drawNumber);if(!draw)return apiError("DRAW_NOT_FOUND","Verified draw not found.",404);const result=checkCombination(parsed.data.numbers,draw.mainNumbers,draw.extraNumber);const dividend=result.prizeDivision?draw.prizes.find((prize)=>prize.division===result.prizeDivision)?.dividend??(result.prizeDivision===1?draw.firstPrizeDividend:null):null;return apiSuccess({drawNumber:draw.drawNumber,drawDate:draw.drawDate,selectedNumbers:[...parsed.data.numbers].sort((a,b)=>a-b),...result,dividend,winningNumbers:draw.mainNumbers,extraNumber:draw.extraNumber});}catch{return apiError("INTERNAL_ERROR","Unable to check this combination.",500);}}
