@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.12.2 - 2026-07-22
+
+- Updated the recent-draw heatmap to a six-step blue, cyan, green, yellow, orange, and red cold-to-hot scale.
 ## 0.12.1 - 2026-07-22
 
 - Fixed mobile dashboard cards being widened by scrollable tables and heatmaps.
