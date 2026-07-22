@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.0 - 2026-07-22
+
+- Added verified-only number, pattern, gap, and pair analytics.
+- Added live analytics APIs and a filterable accessible dashboard.
+- Added statistical fixtures, methodology notices, and loading/error states.
+
 ## 0.4.0 - 2026-07-22
 
 - Added verified-only public draw list, latest-draw, and draw-detail APIs.
