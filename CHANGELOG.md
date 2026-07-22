@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.12.1 - 2026-07-22
+
+- Fixed mobile dashboard cards being widened by scrollable tables and heatmaps.
+- Contained horizontal scrolling within each data card and added viewport-overflow E2E coverage.
 ## 0.12.0 - 2026-07-22
 
 - Added an authenticated, owner-only saved-combinations workspace.
