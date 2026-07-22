@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0 - 2026-07-21
+
+- Added server-only Renavon Mark Six API integration and strict response validation.
+- Added deduplicated historical/new-draw staging, admin sync UI, and audit logging.
+- Added a protected daily Vercel Cron endpoint and Supabase service client.
+- Added Renavon mapping tests and deployment documentation.
+
 ## 0.2.0 - 2026-07-21
 
 - 新增 Supabase Phase 1 schema、constraints、indexes 及 RLS policies。

@@ -1,0 +1,5 @@
+{
+  "crons": [
+    { "path": "/api/cron/renavon-sync", "schedule": "30 15 * * *" }
+  ]
+}
