@@ -15,7 +15,7 @@ export class RenavonError extends Error {
 }
 
 export async function queryRenavon(query: string): Promise<Record<string, unknown>[]> {
-  const apiKey = process.env.RENAVON_API_KEY;
+  const apiKey = process.env.RENAVON_API_KEY?.trim();
   if (!apiKey) throw new RenavonError("RENAVON_API_KEY is not configured.", "NOT_CONFIGURED");
   const response = await fetch("https://renavon.com/api/v1/query", {
     method: "POST",
