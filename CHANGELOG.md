@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.12.0 - 2026-07-22
+
+- Added an authenticated, owner-only saved-combinations workspace.
+- Added favourite toggling, deletion, empty states, and responsive collection cards.
+- Added safe post-login return paths and one-click checker prefilling.
+- Added saved-combination API, RLS contract, auth, and browser coverage.
 ## 0.11.0 - 2026-07-22
 
 - Added recent-100-draw gap rankings with responsible-use context.

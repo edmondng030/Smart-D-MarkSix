@@ -1,0 +1,4 @@
+import{expect,test}from"@playwright/test";
+test("protects saved combinations and preserves return path",async({page})=>{await page.goto("/zh-HK/saved");await expect(page).toHaveURL(/\/zh-HK\/login\?next=(%2F|\/)zh-HK(%2F|\/)saved/);await expect(page.locator('input[name="next"]')).toHaveValue("/zh-HK/saved");});
+test("saved combinations API rejects anonymous access",async({request})=>{const response=await request.get("/api/saved-combinations");expect(response.status()).toBe(401);});
+test("checker accepts six prefilled numbers",async({page})=>{await page.goto("/zh-HK/checker?numbers=1,2,3,4,5,6");for(const number of [1,2,3,4,5,6])await expect(page.getByRole("button",{name:`號碼 ${number}`,exact:true})).toHaveAttribute("aria-pressed","true");await expect(page.getByText("已選 6 / 6")).toBeVisible();});
