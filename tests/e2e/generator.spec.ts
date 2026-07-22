@@ -1,0 +1,2 @@
+import{expect,test}from"@playwright/test";
+test("generates reproducible combinations on desktop and mobile",async({page})=>{await page.goto("/zh-HK/generator");await expect(page.getByRole("heading",{name:"可重現組合產生器"})).toBeVisible();await page.getByLabel("Random seed").fill("e2e-repeatable");await page.getByRole("button",{name:"產生組合"}).click();await expect(page.getByRole("heading",{name:"產生結果"})).toBeVisible({timeout:30000});await expect(page.getByText("可用相同 seed 重現")).toBeVisible();await expect(page.getByText("組合 1",{exact:true})).toBeVisible();});

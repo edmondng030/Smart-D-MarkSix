@@ -1,4 +1,4 @@
-import { WandSparkles } from "lucide-react";
+import { Dices } from "lucide-react";
+import { GeneratorWorkbench } from "@/components/generator/generator-workbench";
 import { PageShell } from "@/components/layout/page-shell";
-export default function Page() { return <PageShell icon={WandSparkles} eyebrow="Generator" title="組合實驗" description="建立可重現的隨機與條件式組合；歷史模式評分不是中獎率。"><Notice /></PageShell>; }
-function Notice() { return <div className="mt-10 rounded-2xl border border-amber-300/15 bg-amber-300/[.05] p-6 text-sm leading-7 text-amber-100/80">所有六個號碼組合在公平及獨立攪珠下，中頭獎的理論機率相同。此功能將於 Generator Phase 建立。</div>; }
+export default function Page(){return <PageShell icon={Dices} eyebrow="Seeded generator · Phase 4" title="可重現組合產生器" description="使用固定 seed、透明限制及 verified 歷史資料產生組合。每個有效的六號組合在正式開獎中的理論機率仍然相同。"><GeneratorWorkbench/></PageShell>;}

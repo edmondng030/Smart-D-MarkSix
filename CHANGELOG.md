@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.6.0 - 2026-07-22
+
+- Added reproducible uniform, conditional, and historical-weighted generators.
+- Added transparent constraints, bounded feasibility handling, and generator API.
+- Added owner-only generation runs and saved combinations with RLS.
+- Added deterministic, validity, constraint, and mobile/desktop E2E tests.
+
 ## 0.5.0 - 2026-07-22
 
 - Added verified-only number, pattern, gap, and pair analytics.
