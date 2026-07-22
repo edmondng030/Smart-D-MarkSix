@@ -1,0 +1,2 @@
+import{expect,test}from"@playwright/test";
+test("runs a leakage-safe walk-forward comparison",async({page})=>{await page.goto("/zh-HK/backtest");await expect(page.getByRole("heading",{name:"策略回測實驗室"})).toBeVisible();await page.getByLabel("目標期數").fill("5");await page.getByLabel("每期組合").fill("1");await page.getByLabel("Seed 數量").fill("1");await page.getByRole("button",{name:"開始回測"}).click();await expect(page.getByRole("heading",{name:"Walk-forward 結果"})).toBeVisible({timeout:30000});await expect(page.getByText(/Training end 全部早於 target：通過/)).toBeVisible();});

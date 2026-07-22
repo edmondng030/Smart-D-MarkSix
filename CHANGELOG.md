@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.0 - 2026-07-22
+
+- Added leakage-safe walk-forward backtesting with per-target training audits.
+- Added matched uniform-random baselines, multi-seed evaluation, and hit distributions.
+- Added transparent cost, known-return coverage, incomplete-ROI warnings, and owner-only persistence.
+- Added reproducibility, leakage, bounded-range, API, and desktop/mobile E2E coverage.
+
 ## 0.7.0 - 2026-07-22
 
 - Added verified-draw result checker API and responsive 1–49 number pad.

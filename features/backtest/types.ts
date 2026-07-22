@@ -1,0 +1,4 @@
+import type{AnalyticsDraw}from"@/features/analytics/types";
+export type BacktestDraw=AnalyticsDraw&{firstPrizeDividend:number|null};
+export type BacktestMetrics={predictions:number;averageMainHits:number;hitDistribution:Record<string,number>;prizeDistribution:Record<string,number>;knownReturn:number;returnCoverage:number|null;simulatedCost:number;knownRoi:number};
+export type BacktestResult={method:"uniform_random"|"historical_weighted";modelVersion:string;baseSeed:string;seedCount:number;targetDraws:number;minimumTrainingDraws:number;combinationsPerDraw:number;trainingEndBeforeEveryTarget:boolean;strategy:BacktestMetrics;baseline:BacktestMetrics;upliftVsRandom:number;targets:Array<{drawNumber:string;drawDate:string;trainingEndDate:string;trainingDrawCount:number;strategyAverageHits:number;baselineAverageHits:number}>;executionMs:number};

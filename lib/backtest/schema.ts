@@ -1,0 +1,2 @@
+import{z}from"zod";
+export const backtestRequestSchema=z.object({method:z.enum(["uniform_random","historical_weighted"]),targetDraws:z.coerce.number().int().min(5).max(500),minimumTrainingDraws:z.coerce.number().int().min(30).max(4000),combinationsPerDraw:z.coerce.number().int().min(1).max(20),seedCount:z.coerce.number().int().min(1).max(10),seed:z.string().trim().min(1).max(100),unitCost:z.coerce.number().min(1).max(100).default(10)});
