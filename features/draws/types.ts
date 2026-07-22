@@ -7,6 +7,7 @@ export type DrawSummary = {
   firstPrizeFund: number | null;
   firstPrizeDividend: number | null;
   sourceName: string | null;
+  sourceRetrievedAt?: string | null;
 };
 
 export type DrawDetail = DrawSummary & {

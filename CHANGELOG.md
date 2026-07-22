@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.0 - 2026-07-22
+
+- Rebuilt the live homepage as a compact verified-data dashboard.
+- Added data freshness, recent draws, recent-number frequency, status, and quick actions.
+- Added a responsive desktop sidebar and mobile More sheet for secondary tools and admin login.
+- Added desktop/mobile dashboard navigation coverage.
 ## 0.9.0 - 2026-07-22
 
 - Added durable Supabase-backed rate limiting for expensive and sensitive APIs.
