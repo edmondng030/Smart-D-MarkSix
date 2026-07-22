@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.11.0 - 2026-07-22
+
+- Added recent-100-draw gap rankings with responsible-use context.
+- Added a recent-ten-draw number-band heatmap with accessible cell labels.
+- Added native mobile sharing with clipboard fallback for the latest verified result.
+- Strengthened the mobile navigation interaction layer on long dashboards.
 ## 0.10.0 - 2026-07-22
 
 - Rebuilt the live homepage as a compact verified-data dashboard.
