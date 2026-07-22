@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.0 - 2026-07-22
+
+- Added verified-only public draw list, latest-draw, and draw-detail APIs.
+- Replaced homepage demo content with live Supabase draw data.
+- Added a filterable, sortable, paginated historical results archive.
+- Added loading, empty, and error states plus query-validation tests.
+
 ## 0.3.0 - 2026-07-21
 
 - Added server-only Renavon Mark Six API integration and strict response validation.

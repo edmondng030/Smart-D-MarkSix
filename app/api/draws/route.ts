@@ -1,0 +1,3 @@
+import { apiError, apiSuccess } from "@/lib/api/response";
+import { drawListQuerySchema, listVerifiedDraws } from "@/lib/draws/repository";
+export async function GET(request: Request) { const parsed = drawListQuerySchema.safeParse(Object.fromEntries(new URL(request.url).searchParams)); if (!parsed.success) return apiError("VALIDATION_ERROR", "Invalid draw query.", 400, parsed.error.flatten()); try { const result = await listVerifiedDraws(parsed.data); return apiSuccess({ draws: result.draws, pagination: { page: result.page, pageSize: result.pageSize, total: result.total, totalPages: result.totalPages } }); } catch { return apiError("INTERNAL_ERROR", "Unable to load draw results.", 500); } }
