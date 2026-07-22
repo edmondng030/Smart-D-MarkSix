@@ -1,0 +1,5 @@
+import{createHash}from"node:crypto";
+import type{NextResponse}from"next/server";
+import{apiError}from"@/lib/api/response";
+import{createClient}from"@/lib/supabase/server";
+export async function enforceRateLimit(request:Request,{scope,limit,windowSeconds}:{scope:string;limit:number;windowSeconds:number}):Promise<NextResponse|null>{const forwarded=request.headers.get("x-forwarded-for")?.split(",")[0]?.trim(),ip=forwarded||request.headers.get("x-real-ip")||"unknown",salt=process.env.RATE_LIMIT_SALT||process.env.CRON_SECRET||"mark-six-rate-limit",keyHash=createHash("sha256").update(`${salt}:${scope}:${ip}`).digest("hex");try{const supabase=await createClient(),{data,error}=await supabase.rpc("check_rate_limit",{p_scope:scope,p_key_hash:keyHash,p_limit:limit,p_window_seconds:windowSeconds});if(error)return null;const record=Array.isArray(data)?data[0]:data;if(record&&!record.allowed){const response=apiError("RATE_LIMITED","Too many requests. Please try again later.",429);response.headers.set("Retry-After",String(record.retry_after??windowSeconds));return response;}return null;}catch{return null;}}

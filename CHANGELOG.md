@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.0 - 2026-07-22
+
+- Added durable Supabase-backed rate limiting for expensive and sensitive APIs.
+- Added CSP, HSTS, permissions policy, COOP, SEO metadata, robots, sitemap, and health checks.
+- Corrected global Traditional Chinese navigation/footer text and keyboard landmarks.
+- Added security, SEO, accessibility, and migration tests plus production-readiness documentation.
+
 ## 0.8.0 - 2026-07-22
 
 - Added leakage-safe walk-forward backtesting with per-target training audits.

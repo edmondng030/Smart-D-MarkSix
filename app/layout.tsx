@@ -1,12 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
-export const metadata: Metadata = {
-  title: { default: "六合彩數據研究所", template: "%s｜六合彩數據研究所" },
-  description: "獨立的六合彩歷史數據、概率與模型實驗工具。",
-  robots: { index: false, follow: false }
-};
-
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="zh-HK"><body>{children}</body></html>;
-}
+const appUrl=process.env.NEXT_PUBLIC_APP_URL||"https://smart-d-mark-six.vercel.app";
+export const metadata:Metadata={metadataBase:new URL(appUrl),title:{default:"六合彩數據實驗室",template:"%s｜六合彩數據實驗室"},description:"以已核實香港六合彩歷史開獎資料提供結果查詢、統計分析、可重現組合產生及 walk-forward 回測。",keywords:["六合彩","Mark Six","開獎結果","歷史數據","統計分析"],alternates:{canonical:"/zh-HK"},openGraph:{type:"website",locale:"zh_HK",siteName:"Mark Six Data Lab",title:"六合彩數據實驗室",description:"Verified historical Mark Six results and reproducible analytics.",url:"/zh-HK"},twitter:{card:"summary",title:"六合彩數據實驗室",description:"Verified historical Mark Six results and reproducible analytics."},robots:{index:true,follow:true},category:"education"};
+export default function RootLayout({children}:Readonly<{children:React.ReactNode}>){return <html lang="zh-HK"><body>{children}</body></html>;}

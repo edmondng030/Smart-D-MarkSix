@@ -1,3 +1,4 @@
+import{enforceRateLimit}from"@/lib/security/rate-limit";
 import { apiError,apiSuccess } from "@/lib/api/response";
 import { loadAnalyticsDraws } from "@/lib/analytics/repository";
 import { generateCombinations,GeneratorConstraintError } from "@/lib/generator/engine";
@@ -5,7 +6,7 @@ import { generatorRequestSchema } from "@/lib/generator/schema";
 import { calculateNumberFrequency } from "@/lib/statistics/draw-analytics";
 import { createClient } from "@/lib/supabase/server";
 
-export async function POST(request:Request){
+export async function POST(request:Request){const limited=await enforceRateLimit(request,{scope:"generator",limit:20,windowSeconds:60});if(limited)return limited;
   const parsed=generatorRequestSchema.safeParse(await request.json().catch(()=>null));
   if(!parsed.success)return apiError("VALIDATION_ERROR","Invalid generator request.",400,parsed.error.flatten());
   try{
